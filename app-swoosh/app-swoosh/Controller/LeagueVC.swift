@@ -37,7 +37,7 @@ class LeagueVC: UIViewController {
         
     }
     
-    
+    //When the next button is tapped
     @IBAction func onNextTapped(_ sender: Any) {
         performSegue(withIdentifier: "skillVCSegue", sender: self)
     }
@@ -49,16 +49,13 @@ class LeagueVC: UIViewController {
         print("selected league: \(leaguetype)")
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // this method will always be called before viewDidLoad on the destination controller.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        // if the segue destination is of type SkillVC (inherits from UIViewController), then do this block of code
+        if let skillVC = segue.destination as? SkillVC{
+            skillVC.player = player
+        }
     }
-    */
 
 }
